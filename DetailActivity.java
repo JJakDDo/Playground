@@ -81,21 +81,21 @@ public class DetailActivity extends AppCompatActivity {
         sponsor.setText(intent.getStringExtra("sponsor").toString().equals(".")?" ":intent.getStringExtra("sponsor").toString());
 
         if(!intent.getStringExtra("infoImage1").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage1").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage1);
+            Glide.with(this).load(intent.getStringExtra("infoImage1").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage1);
         if(!intent.getStringExtra("infoImage2").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage2").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage2);
+            Glide.with(this).load(intent.getStringExtra("infoImage2").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage2);
         if(!intent.getStringExtra("infoImage3").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage3").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage3);
+            Glide.with(this).load(intent.getStringExtra("infoImage3").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage3);
         if(!intent.getStringExtra("infoImage4").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage4").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage4);
+            Glide.with(this).load(intent.getStringExtra("infoImage4").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage4);
         if(!intent.getStringExtra("infoImage5").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage5").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage5);
+            Glide.with(this).load(intent.getStringExtra("infoImage5").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage5);
         if(!intent.getStringExtra("infoImage6").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage6").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage6);
+            Glide.with(this).load(intent.getStringExtra("infoImage6").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage6);
         if(!intent.getStringExtra("infoImage7").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage7").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage7);
+            Glide.with(this).load(intent.getStringExtra("infoImage7").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage7);
         if(!intent.getStringExtra("infoImage8").toString().equals(" "))
-            Glide.with(this).load(intent.getStringExtra("infoImage8").toString()).apply(new RequestOptions().override(1024, 4000)).into(infoImage8);
+            Glide.with(this).load(intent.getStringExtra("infoImage8").toString()).apply(new RequestOptions().override(2048, 4096)).into(infoImage8);
 
     }
 

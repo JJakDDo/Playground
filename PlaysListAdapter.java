@@ -1,7 +1,11 @@
 package com.example.kang.playground;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -76,13 +80,27 @@ public class PlaysListAdapter extends BaseAdapter implements Filterable{
         }
 
         viewHolder.title.setText(playsList.get(position).getTitle());
-        viewHolder.date.setText(playsList.get(position).getDate());
+        if(playsList.get(position).getDate().length() < 15){
+            viewHolder.date = setPartialColor("OPEN RUN", playsList.get(position).getDate(), "#FFFB5959", viewHolder.date);
+        }
+        else{
+            int index = playsList.get(position).getDate().indexOf('~');
+            viewHolder.date = setPartialColor(playsList.get(position).getDate().substring(index + 1), playsList.get(position).getDate().substring(0, index + 1), "#FFFB5959", viewHolder.date);
+        }
         viewHolder.runTime.setText(playsList.get(position).getRunTime());
         viewHolder.theater.setText(playsList.get(position).getTheater());
         Glide.with(v).load(playsList.get(position).getPosterURL()).apply(new RequestOptions().override(1024, 1024)).into(viewHolder.poster);
 
 
         return v;
+    }
+
+    private TextView setPartialColor(String colorString, String string, String color, TextView textView){
+        textView.setText("");
+        SpannableStringBuilder builder = new SpannableStringBuilder(string + colorString);
+        builder.setSpan(new ForegroundColorSpan(Color.parseColor(color)), string.length(), colorString.length() + string.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        textView.append(builder);
+        return textView;
     }
 
     public void filter(String charText) {
