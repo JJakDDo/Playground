@@ -20,6 +20,7 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.StringTokenizer;
 
 /**
  * Created by kang on 2017. 11. 24..
@@ -68,11 +69,22 @@ public class PlaysListAdapter extends BaseAdapter implements Filterable{
             viewHolder.runTime = (TextView) v.findViewById(R.id.runTime);
             viewHolder.poster = (ImageView) v.findViewById(R.id.poster);
             viewHolder.theater = (TextView) v.findViewById(R.id.theater);
+            viewHolder.textViewArray = new TextView[10];
+            viewHolder.textViewArray[0] = (TextView) v.findViewById(R.id.tag1);
+            viewHolder.textViewArray[1] = (TextView) v.findViewById(R.id.tag2);
+            viewHolder.textViewArray[2] = (TextView) v.findViewById(R.id.tag3);
+            viewHolder.textViewArray[3] = (TextView) v.findViewById(R.id.tag4);
+            viewHolder.textViewArray[4] = (TextView) v.findViewById(R.id.tag5);
+            viewHolder.textViewArray[5] = (TextView) v.findViewById(R.id.tag6);
+            viewHolder.textViewArray[6] = (TextView) v.findViewById(R.id.tag7);
+            viewHolder.textViewArray[7] = (TextView) v.findViewById(R.id.tag8);
+            viewHolder.textViewArray[8] = (TextView) v.findViewById(R.id.tag9);
+            viewHolder.textViewArray[9] = (TextView) v.findViewById(R.id.tag10);
 
             viewHolder.title.setTypeface(tf1);
             viewHolder.date.setTypeface(tf2);
-            viewHolder.runTime.setTypeface(tf2);
-            viewHolder.theater.setTypeface(tf2);
+            for(int i=0;i<10;i++)
+                viewHolder.textViewArray[i].setTypeface(tf2);
 
             v.setTag(viewHolder);
         } else{
@@ -91,6 +103,17 @@ public class PlaysListAdapter extends BaseAdapter implements Filterable{
         viewHolder.theater.setText(playsList.get(position).getTheater());
         Glide.with(v).load(playsList.get(position).getPosterURL()).apply(new RequestOptions().override(1024, 1024)).into(viewHolder.poster);
 
+        StringTokenizer st = new StringTokenizer(playsList.get(position).getGenre(), ",");
+        int i = 0;
+        String next;
+
+        while(st.hasMoreElements()){
+            next = st.nextToken();
+            viewHolder.textViewArray[i++].setText("#" + next);
+        }
+
+        for(;i<10;i++)
+            viewHolder.textViewArray[i++].setText("");
 
         return v;
     }
@@ -133,5 +156,6 @@ public class PlaysListAdapter extends BaseAdapter implements Filterable{
         public TextView runTime;
         public TextView theater;
         public ImageView poster;
+        public TextView[] textViewArray;
     }
 }

@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(s);
                 JSONArray jsonArray = jsonObject.getJSONArray("response");
                 int count = 0;
+                String genre;
                 String title;
                 String date;
                 String runTime;
@@ -173,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 while(count < jsonArray.length()){
                     JSONObject object = jsonArray.getJSONObject(count);
                     title = object.getString("title");
+                    genre = object.getString("genre");
                     if(object.getString("endDate").equals("0000-00-00"))
                         date = object.getString("startDate") + " ~ ";
                     else if(object.getString("endDate").compareTo(strToday) < 0){
@@ -196,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                     infoImage8 = object.getString("infoImage8");
                     price = object.getString("price");
                     discount = object.getString("discount");
-                    Plays plays = new Plays(title, date.replace("-", "."), runTime, theater, posterURL, sponsor, price, discount, showTime, infoText, infoImage1, infoImage2, infoImage3, infoImage4, infoImage5, infoImage6, infoImage7, infoImage8);
+                    Plays plays = new Plays(genre, title, date.replace("-", "."), runTime, theater, posterURL, sponsor, price, discount, showTime, infoText, infoImage1, infoImage2, infoImage3, infoImage4, infoImage5, infoImage6, infoImage7, infoImage8);
                     playsList.add(plays);
                     arrayList.add(plays);
                     count++;

@@ -5,6 +5,7 @@ package com.example.kang.playground;
  */
 public class Plays {
 
+    String genre;
     String title;
     String date;
     String runTime;
@@ -24,6 +25,13 @@ public class Plays {
     String infoImage7;
     String infoImage8;
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
     public String getInfoImage1() {
         return infoImage1;
@@ -169,7 +177,8 @@ public class Plays {
         this.theater = theater;
     }
 
-    public Plays(String title, String date, String runTime, String theater, String posterURL, String sponsor, String price, String discount, String showTime, String infoText, String infoImage1, String infoImage2, String infoImage3, String infoImage4, String infoImage5, String infoImage6, String infoImage7, String infoImage8) {
+    public Plays(String genre, String title, String date, String runTime, String theater, String posterURL, String sponsor, String price, String discount, String showTime, String infoText, String infoImage1, String infoImage2, String infoImage3, String infoImage4, String infoImage5, String infoImage6, String infoImage7, String infoImage8) {
+        this.genre = genre;
         this.title = title;
         this.date = date;
         this.runTime = runTime;
